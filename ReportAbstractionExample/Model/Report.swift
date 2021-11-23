@@ -7,8 +7,11 @@
 
 import Foundation
 
-struct Report {
+// Conforming to identifiable just means we "promise" that there will be a property named "id" that contains a unique identifier
+struct Report: Identifiable {
     
+    // Add a stored property that is automatically assigned a unique series of letters and numbers...UUID
+    let id = UUID()
     let name: String
     let grade: Int
     let comment: String
