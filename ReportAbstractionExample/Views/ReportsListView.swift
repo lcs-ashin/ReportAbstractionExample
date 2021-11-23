@@ -19,7 +19,12 @@ struct ReportsListView: View {
             //
             // WHAT WILL BE SHOWN REPEATEDLY
             ForEach(listOfReports) { currentReport in
-                Text(currentReport.name)
+                
+                NavigationLink(destination: {
+                    Text("\(currentReport.grade)")
+                }, label: {
+                    Text(currentReport.name)
+                })
             }
         }
         .navigationTitle("Reports")
