@@ -16,12 +16,30 @@ struct ReportDetailView: View {
     // MARK: Computed Properties
     var body: some View {
         ScrollView {
-            VStack {
-                Text(thisReport.name)
-                Text("\(thisReport.grade)")
-                Text(thisReport.comment)
+            VStack(alignment: .leading) {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.gray.opacity(0.1))
+                    
+                    Text("\(thisReport.grade)")
+                        .font(Font.title.bold().italic())
+                        .padding(.vertical, 20)
+                }
+                .padding(.vertical)
+                
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(.gray.opacity(0.1))
+                    
+                    Text(thisReport.comment)
+                        .font(Font.title3)
+                        .padding()
+                }
             }
+            .padding()
         }
+        .navigationTitle(thisReport.name)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
